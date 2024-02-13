@@ -10,8 +10,8 @@ function Header() {
       alignItems="center"
       justifyContent="space-between"
       p={2}
-      borderBottom= "2px solid #cccccc"
-      boxShadow= "0px 0px 4px 0px rgba(0, 0, 0, 0.25)"
+      borderBottom="2px solid #cccccc"
+      boxShadow="0px 0px 4px 0px rgba(0, 0, 0, 0.25)"
     >
       <Stack direction="row" gap="10px">
         <svg
