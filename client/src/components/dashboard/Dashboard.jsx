@@ -1,8 +1,10 @@
 import React from "react";
 import { Box, Stack, Typography } from "@mui/material";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import PieChart from "./PieChart";
-import TotalRevenue from "./TotalRevenue";
-import PropertyReferrals from "./PropertyReferrals";
+import StudentsChart from "./StudentsChart";
 
 function Dashboard() {
   return (
@@ -42,9 +44,23 @@ function Dashboard() {
         width="100%"
         direction={{ xs: "column", lg: "row" }}
         gap={4}
+        height={410}
       >
-        <TotalRevenue />
-        <PropertyReferrals />
+        <StudentsChart />
+        <Box
+          p={4}
+          bgcolor="#fcfcfc"
+          display="flex"
+          flexDirection="column"
+          borderRadius="15px"
+        >
+          <Typography fontSize="20px" fontWeight={700} color="#11142d">
+            Academic Calendar
+          </Typography>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DateCalendar />
+          </LocalizationProvider>
+        </Box>
       </Stack>
     </Box>
   );

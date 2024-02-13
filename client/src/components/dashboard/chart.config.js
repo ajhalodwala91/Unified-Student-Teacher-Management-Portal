@@ -1,15 +1,15 @@
-export const TotalRevenueSeries = [
+export const StudentsSeries = [
   {
-    name: "Last Month",
-    data: [183, 124, 115, 85, 143, 143, 96],
+    name: "Boys",
+    data: [183, 124, 115, 85, 143, 143, 96, 183, 124, 115],
   },
   {
-    name: "Running Month",
-    data: [95, 84, 72, 44, 108, 108, 47],
+    name: "Girls",
+    data: [95, 84, 72, 44, 108, 108, 47, 95, 84, 72],
   },
 ];
 
-export const TotalRevenueOptions = {
+export const StudentsOptions = {
   chart: {
     type: "bar",
     toolbar: {
@@ -35,11 +35,22 @@ export const TotalRevenueOptions = {
     width: 4,
   },
   xaxis: {
-    categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+    categories: [
+      "Grade 1",
+      "Grade 2",
+      "Grade 3",
+      "Grade 4",
+      "Grade 5",
+      "Grade 6",
+      "Grade 7",
+      "Grade 8",
+      "Grade 9",
+      "Grade 10",
+    ],
   },
   yaxis: {
     title: {
-      text: "$ (thousands)",
+      text: "No. of Students",
     },
   },
   fill: {
@@ -52,37 +63,9 @@ export const TotalRevenueOptions = {
   tooltip: {
     enabled: true,
     y: {
-        formatter(val) {
-            return `$${val} thousand`;
-        },
+      formatter(val) {
+        return val;
+      },
     },
   },
 };
-
-export const PropertyReferralsInfo = [
-  {
-      title: "Social Media",
-      percentage: 64,
-      color: "#6C5DD3",
-  },
-  {
-      title: "Marketplace",
-      percentage: 40,
-      color: "#7FBA7A",
-  },
-  {
-      title: "Websites",
-      percentage: 50,
-      color: "#FFCE73",
-  },
-  {
-      title: "Digital Ads",
-      percentage: 80,
-      color: "#FFA2C0",
-  },
-  {
-      title: "Others",
-      percentage: 15,
-      color: "#F45252",
-  },
-];
