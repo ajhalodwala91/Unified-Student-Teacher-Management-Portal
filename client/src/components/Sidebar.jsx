@@ -1,18 +1,32 @@
 import React from "react";
-import { Box, Icon, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { Icons } from "../assets/Icons";
+import { IoSchoolOutline, IoSettingsOutline } from "react-icons/io5";
+import { PiStudent } from "react-icons/pi";
+import { VscGroupByRefType } from "react-icons/vsc";
 
 function SidebarLink({ icon, name }) {
   return (
-    <Stack direction="row" alignItems="center" gap={1}>
-      {icon}
-      <Typography fontSize={18} fontWeight={700}>{name}</Typography>
+    <Stack
+      direction="row"
+      alignItems="center"
+      gap={1}
+      p={1}
+      borderRadius="10px"
+      sx={{
+        "&:hover": {
+          backgroundColor: "#cccccc",
+        },
+      }}
+    >
+      <Box width={35}>{icon}</Box>
+      <Typography fontWeight={600}>{name}</Typography>
     </Stack>
   );
 }
 
 function Sidebar() {
-  const icons = <Icons />
+  const icons = <Icons />;
   return (
     <Box
       height="100vh"
@@ -24,7 +38,7 @@ function Sidebar() {
       flexDirection="column"
       gap={4}
     >
-      <Stack direction="row" alignItems="center" gap={1.5}>
+      <Stack direction="row" alignItems="center" gap={1.5} >
         <img
           src="https://img.freepik.com/free-vector/modern-business-logo-gradient-icon-design_53876-120504.jpg"
           alt="App Logo"
@@ -38,12 +52,21 @@ function Sidebar() {
       </Stack>
 
       <Stack gap={2}>
+        <SidebarLink icon={icons.type.sidebar.homeIcon} name="Home" />
+        <SidebarLink icon={<PiStudent fontSize={30} />} name="Students" />
+        <SidebarLink icon={<IoSchoolOutline fontSize={30} />} name="Teachers" />
         <SidebarLink
-          icon={icons.type.sidebar.homeIcon} name="Home"
+          icon={<VscGroupByRefType fontSize={30} />}
+          name="Departments"
         />
-        <Typography>Students</Typography>
-        <Typography>Teacher</Typography>
-        <Typography>Department</Typography>
+        <SidebarLink
+          icon={icons.type.sidebar.announcementIcon}
+          name="Announcements"
+        />
+        <SidebarLink
+          icon={<IoSettingsOutline fontSize={28} />}
+          name="Settings"
+        />
       </Stack>
     </Box>
   );
