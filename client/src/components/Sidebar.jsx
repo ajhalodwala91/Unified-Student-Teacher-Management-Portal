@@ -57,7 +57,7 @@ function Sidebar() {
           <SidebarLink icon={icons.type.sidebar.homeIcon} name="Home" />
         </Link>
 
-        <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+        <Link to="/students/AllStudents" style={{ textDecoration: "none", color: "black" }}>
           <SidebarLink icon={<PiStudent fontSize={30} />} name="Students" />
         </Link>
 
