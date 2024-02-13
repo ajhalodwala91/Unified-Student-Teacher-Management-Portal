@@ -4,7 +4,6 @@ import { Box, Stack, Typography } from "@mui/material";
 function Header() {
   return (
     <Box
-      width="100vw"
       height={70}
       display="flex"
       alignItems="center"
@@ -13,7 +12,7 @@ function Header() {
       borderBottom="2px solid #cccccc"
       boxShadow="0px 0px 4px 0px rgba(0, 0, 0, 0.25)"
     >
-      <Stack direction="row" gap="10px">
+      <Stack direction="row" gap="10px" flex={1}>
         <svg
           height="32px"
           viewBox="0 -0.5 25 25"
@@ -48,7 +47,7 @@ function Header() {
             backgroundColor: "transparent",
             border: "none",
             outline: "none",
-            width: "300px",
+            flex: 1
           }}
           type="text"
           placeholder="Search for students or classes"

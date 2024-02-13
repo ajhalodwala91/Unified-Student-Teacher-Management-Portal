@@ -2,8 +2,9 @@ import React from "react";
 import { Box, Stack, Typography } from "@mui/material";
 import { Icons } from "../assets/Icons";
 import { IoSchoolOutline, IoSettingsOutline } from "react-icons/io5";
-import { PiStudent } from "react-icons/pi";
+import { PiStudent, PiTable } from "react-icons/pi";
 import { VscGroupByRefType } from "react-icons/vsc";
+import { Link } from "react-router-dom";
 
 function SidebarLink({ icon, name }) {
   return (
@@ -30,7 +31,7 @@ function Sidebar() {
   return (
     <Box
       height="100vh"
-      width="300px"
+      width="250px"
       p={2}
       borderRight="2px solid #cccccc"
       boxShadow="0px 0px 4px 0px rgba(0, 0, 0, 0.25)"
@@ -38,7 +39,7 @@ function Sidebar() {
       flexDirection="column"
       gap={4}
     >
-      <Stack direction="row" alignItems="center" gap={1.5} >
+      <Stack direction="row" alignItems="center" gap={1.5}>
         <img
           src="https://img.freepik.com/free-vector/modern-business-logo-gradient-icon-design_53876-120504.jpg"
           alt="App Logo"
@@ -52,21 +53,45 @@ function Sidebar() {
       </Stack>
 
       <Stack gap={2}>
-        <SidebarLink icon={icons.type.sidebar.homeIcon} name="Home" />
-        <SidebarLink icon={<PiStudent fontSize={30} />} name="Students" />
-        <SidebarLink icon={<IoSchoolOutline fontSize={30} />} name="Teachers" />
-        <SidebarLink
-          icon={<VscGroupByRefType fontSize={30} />}
-          name="Departments"
-        />
-        <SidebarLink
-          icon={icons.type.sidebar.announcementIcon}
-          name="Announcements"
-        />
-        <SidebarLink
-          icon={<IoSettingsOutline fontSize={28} />}
-          name="Settings"
-        />
+        <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+          <SidebarLink icon={icons.type.sidebar.homeIcon} name="Home" />
+        </Link>
+
+        <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+          <SidebarLink icon={<PiStudent fontSize={30} />} name="Students" />
+        </Link>
+
+        <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+          <SidebarLink
+            icon={<IoSchoolOutline fontSize={30} />}
+            name="Teachers"
+          />
+        </Link>
+
+        <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+          <SidebarLink
+            icon={<VscGroupByRefType fontSize={30} />}
+            name="Departments"
+          />
+        </Link>
+
+        <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+          <SidebarLink icon={<PiTable fontSize={30} />} name="Time Table" />
+        </Link>
+
+        <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+          <SidebarLink
+            icon={icons.type.sidebar.announcementIcon}
+            name="Announcements"
+          />
+        </Link>
+
+        <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+          <SidebarLink
+            icon={<IoSettingsOutline fontSize={28} />}
+            name="Settings"
+          />
+        </Link>
       </Stack>
     </Box>
   );
