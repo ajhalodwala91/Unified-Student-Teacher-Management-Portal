@@ -27,7 +27,8 @@ function SidebarLink({ icon, name }) {
 }
 
 function Sidebar() {
-  const icons = <Icons />;
+  let icons = <Icons />;
+  icons = icons.type.sidebar;
   return (
     <Box
       height="100vh"
@@ -54,7 +55,7 @@ function Sidebar() {
 
       <Stack gap={2}>
         <Link to="/" style={{ textDecoration: "none", color: "black" }}>
-          <SidebarLink icon={icons.type.sidebar.homeIcon} name="Home" />
+          <SidebarLink icon={icons.homeIcon} name="Home" />
         </Link>
 
         <Link to="/students/AllStudents" style={{ textDecoration: "none", color: "black" }}>
@@ -81,7 +82,7 @@ function Sidebar() {
 
         <Link to="/" style={{ textDecoration: "none", color: "black" }}>
           <SidebarLink
-            icon={icons.type.sidebar.announcementIcon}
+            icon={icons.announcementIcon}
             name="Announcements"
           />
         </Link>

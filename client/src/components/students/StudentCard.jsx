@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Stack, Typography } from "@mui/material";
+import {useNavigate} from "react-router-dom";
 
 function CardField({ name, value }) {
   return (
@@ -13,6 +14,7 @@ function CardField({ name, value }) {
 }
 
 function StudentCard({ name, year, img }) {
+  const navigate = useNavigate();
   return (
     <Stack
       borderRadius="15px"
@@ -20,6 +22,7 @@ function StudentCard({ name, year, img }) {
       gap={2}
       overflow="hidden"
       bgcolor="#fcfcfc"
+      onClick={() => navigate("/components/students/StudentProfile")}
     >
       <Box display="flex" justifyContent="center" alignItems="center">
         <img

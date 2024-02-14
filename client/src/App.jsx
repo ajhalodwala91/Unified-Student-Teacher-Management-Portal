@@ -6,6 +6,7 @@ import { Stack } from "@mui/material";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AllStudents from "./components/students/AllStudents";
+import StudentProfile from "./components/students/StudentProfile";
 
 function App() {
   return (
@@ -16,12 +17,13 @@ function App() {
           <Header />
 
           <Routes>
-            <Route path="/" element={<AllStudents />}>
-              <Route index element={<AllStudents />} />
+            <Route path="/" element={<StudentProfile />}>
+              <Route index element={<StudentProfile />} />
               <Route
-                path="students/AllStudents"
-                element={<AllStudents />}
+                path="components/students/AllStudents"
+                element={<StudentProfile />}
               />
+              <Route path="components/students/StudentProfile" element={<StudentProfile />} />
               {/* <Route path="contact" element={<Contact />} />
               <Route path="*" element={<NoPage />} /> */}
             </Route>
