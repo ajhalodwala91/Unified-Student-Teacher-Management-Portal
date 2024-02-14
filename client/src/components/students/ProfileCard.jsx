@@ -16,7 +16,7 @@ function CardField({ icon, value, color }) {
   return (
     <Stack
       direction="row"
-      gap={1}
+      gap={2}
       height="15%"
       width="100%"
       alignItems="center"
@@ -37,13 +37,13 @@ function ProfileCard() {
   return (
     <Stack
       alignItems="center"
-      borderRadius="20px"
-      height={500}
-      width={300}
+      borderRadius="30px"
+      height="100%"
+      width={350}
       sx={{ overflow: "hidden" }}
     >
       <img
-        src="https://img.freepik.com/free-photo/guy-plaid-shirt_158595-126.jpg?w=740&t=st=1706603779~exp=1706604379~hmac=5d1deb5599daa2630067518341dcb6292b038f78cc41a1f1e2b3212c124e49c5"
+        src="https://theherdkhs.net/wp-content/uploads/2016/11/image1-900x675.jpeg"
         className="userImg"
         height="55%"
         width="100%"
