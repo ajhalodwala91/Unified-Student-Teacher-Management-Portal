@@ -1,10 +1,11 @@
 import React from "react";
+import "../App.css";
 import { Box, Stack, Typography } from "@mui/material";
 import { Icons } from "../assets/Icons";
 import { IoSchoolOutline, IoSettingsOutline } from "react-icons/io5";
 import { PiStudent, PiTable } from "react-icons/pi";
 import { VscGroupByRefType } from "react-icons/vsc";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function SidebarLink({ icon, name }) {
   return (
@@ -29,6 +30,11 @@ function SidebarLink({ icon, name }) {
 function Sidebar() {
   let icons = <Icons />;
   icons = icons.type.sidebar;
+
+  const location = useLocation();
+  const { pathname } = location;
+  const splitLocation = pathname.split("/");
+
   return (
     <Box
       height="100vh"
@@ -54,40 +60,69 @@ function Sidebar() {
       </Stack>
 
       <Stack gap={2}>
-        <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+        <Link
+          to="/"
+          style={{
+            textDecoration: "none",
+            color: "black",
+          }}
+          className={splitLocation[1] === "" ? "active" : ""}
+        >
           <SidebarLink icon={icons.homeIcon} name="Home" />
         </Link>
 
-        <Link to="/students" style={{ textDecoration: "none", color: "black" }}>
+        <Link
+          to="/students"
+          style={{ textDecoration: "none", color: "black" }}
+          className={splitLocation[1] === "students" ? "active" : ""}
+        >
           <SidebarLink icon={<PiStudent fontSize={30} />} name="Students" />
         </Link>
 
-        <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+        {/* Adjust the paths for the following links based on your route structure */}
+        <Link
+          to="/teachers"
+          style={{ textDecoration: "none", color: "black" }}
+          className={splitLocation[1] === "teachers" ? "active" : ""}
+        >
           <SidebarLink
             icon={<IoSchoolOutline fontSize={30} />}
             name="Teachers"
           />
         </Link>
 
-        <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+        <Link
+          to="/departments"
+          style={{ textDecoration: "none", color: "black" }}
+          className={splitLocation[1] === "departments" ? "active" : ""}
+        >
           <SidebarLink
             icon={<VscGroupByRefType fontSize={30} />}
             name="Departments"
           />
         </Link>
 
-        <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+        <Link
+          to="/timetable"
+          style={{ textDecoration: "none", color: "black" }}
+          className={splitLocation[1] === "timetable" ? "active" : ""}
+        >
           <SidebarLink icon={<PiTable fontSize={30} />} name="Time Table" />
         </Link>
 
-        <Link to="/" style={{ textDecoration: "none", color: "black" }}>
-          <SidebarLink
-            icon={icons.announcementIcon}
-            name="Announcements"
-          />
+        <Link
+          to="/announcements"
+          style={{ textDecoration: "none", color: "black" }}
+          className={splitLocation[1] === "announcemments" ? "active" : ""}
+        >
+          <SidebarLink icon={icons.announcementIcon} name="Announcements" />
         </Link>
 
-        <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+        <Link
+          to="/settings"
+          style={{ textDecoration: "none", color: "black" }}
+          className={splitLocation[1] === "settings" ? "active" : ""}
+        >
           <SidebarLink
             icon={<IoSettingsOutline fontSize={28} />}
             name="Settings"

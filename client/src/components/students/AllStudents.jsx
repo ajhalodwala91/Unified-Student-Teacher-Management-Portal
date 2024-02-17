@@ -23,7 +23,7 @@ function AllStudents() {
 
       <Box width="100%" p="20px" display="flex" gap={4} flexWrap="wrap">
         <StudentCard
-          name="Ching Chong Lee"
+          name="Caroline Stokes"
           year="TY Comp Diploma"
           img="https://menlocoa.org/wp-content/uploads/2012/10/Tinyen-RSp.jpg"
         />

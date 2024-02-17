@@ -6,12 +6,12 @@ import StudentDetails from "./StudentDetails";
 function StudentProfile() {
   return (
     <Box
-      overflow="hidden"
       p="40px"
       display="flex"
       alignItems="center"
-      height="100%"
+      height="90vh" // set a specific height, adjust as needed
       gap={6}
+      overflow="hidden"
     >
       <ProfileCard />
       <StudentDetails />

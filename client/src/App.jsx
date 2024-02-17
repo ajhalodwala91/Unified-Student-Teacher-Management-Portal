@@ -17,16 +17,11 @@ function App() {
           <Header />
 
           <Routes>
-            <Route path="/" element={<StudentProfile />}>
-              <Route index element={<StudentProfile />} />
-              <Route
-                path="students"
-                element={<StudentProfile />}
-              />
-              <Route path="students" element={<StudentProfile />} />
+              <Route index element={<Dashboard />} />
+              <Route path="students" element={<AllStudents />} />
+              <Route path="profile" element={<StudentProfile />} />
               {/* <Route path="contact" element={<Contact />} />
               <Route path="*" element={<NoPage />} /> */}
-            </Route>
           </Routes>
         </Stack>
       </div>

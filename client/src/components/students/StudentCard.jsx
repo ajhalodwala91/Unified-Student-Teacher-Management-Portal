@@ -22,7 +22,7 @@ function StudentCard({ name, year, img }) {
       gap={2}
       overflow="hidden"
       bgcolor="#fcfcfc"
-      onClick={() => navigate("/components/students/StudentProfile")}
+      onClick={() => navigate("/profile")}
     >
       <Box display="flex" justifyContent="center" alignItems="center">
         <img

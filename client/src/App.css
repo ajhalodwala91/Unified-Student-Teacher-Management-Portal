@@ -4,3 +4,8 @@
   overflow: hidden;
   height: 100vh;
 }
+
+.active {
+  border-radius: 10px;
+  background-color: #7c7c7c;
+}
