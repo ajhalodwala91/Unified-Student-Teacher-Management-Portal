@@ -20,10 +20,10 @@ function App() {
             <Route path="/" element={<StudentProfile />}>
               <Route index element={<StudentProfile />} />
               <Route
-                path="components/students/AllStudents"
+                path="students"
                 element={<StudentProfile />}
               />
-              <Route path="components/students/StudentProfile" element={<StudentProfile />} />
+              <Route path="students" element={<StudentProfile />} />
               {/* <Route path="contact" element={<Contact />} />
               <Route path="*" element={<NoPage />} /> */}
             </Route>

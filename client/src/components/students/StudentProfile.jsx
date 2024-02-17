@@ -6,7 +6,7 @@ import StudentDetails from "./StudentDetails";
 function StudentProfile() {
   return (
     <Box
-      overflow="auto"
+      overflow="hidden"
       p="40px"
       display="flex"
       alignItems="center"
