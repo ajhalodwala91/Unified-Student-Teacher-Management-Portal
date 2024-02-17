@@ -5,12 +5,12 @@ import { Box, Button, Stack, Typography } from "@mui/material";
 function DepartmentCard({ img, value }) {
   const navigate = useNavigate();
   return (
-      <Box bgcolor="#fff" borderRadius="15px" p={4}>
-        <img src={img} alt={value} height="200px" />
-        <Typography fontSize="18px" fontWeight={600}>
-          {value}
-        </Typography>
-      </Box>
+    <Box bgcolor="#fff" borderRadius="15px" p={4}>
+      <img src={img} alt={value} style={{ height: "200px" }} />
+      <Typography fontSize="18px" fontWeight={600}>
+        {value}
+      </Typography>
+    </Box>
   );
 }
 

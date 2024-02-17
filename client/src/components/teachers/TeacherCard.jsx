@@ -1,10 +1,10 @@
 import React from "react";
 import { Box, Stack, Typography } from "@mui/material";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function CardField({ name, value }) {
   return (
-    <Stack direction="row" flexWrap="wrap">
+    <Stack direction="row" flexWrap="wrap" overflow="hidden">
       <Typography fontSize="12px" fontWeight={700}>
         {name}&nbsp;
       </Typography>
@@ -13,12 +13,13 @@ function CardField({ name, value }) {
   );
 }
 
-function TeacherCard({ name, year, img }) {
+function TeacherCard({ id, name, pos, img, dob, mobileNum, email }) {
   // const navigate = useNavigate();
   return (
     <Stack
       borderRadius="15px"
-      p="30px 20px"
+      p="20px"
+      width="250px"
       gap={2}
       overflow="hidden"
       bgcolor="#fcfcfc"
@@ -28,12 +29,12 @@ function TeacherCard({ name, year, img }) {
         <img
           src={img}
           alt="Teacher Image"
-          height="100px"
-          width="100px"
           style={{
             borderRadius: "50%",
             objectFit: "cover",
             marginLeft: "5px",
+            height: "100px",
+            width: "100px",
           }}
         />
       </Box>
@@ -42,15 +43,15 @@ function TeacherCard({ name, year, img }) {
           {name}
         </Typography>
         <Typography fontSize="14px" fontWeight={500}>
-          {year}
+          {pos}
         </Typography>
       </Stack>
 
       <Stack gap={0.5}>
-        <CardField name="Teacher ID:" value="2116350069" />
-        <CardField name="DOB:" value="01/01/2000" />
-        <CardField name="Mobile No.:" value="98765 43210" />
-        <CardField name="Email ID:" value="chingchonglee@gmail.com" />
+        <CardField name="Teacher ID:" value={id} />
+        <CardField name="DOB:" value={dob} />
+        <CardField name="Mobile No.:" value={mobileNum} />
+        <CardField name="Email ID:" value={email} />
       </Stack>
     </Stack>
   );

@@ -55,6 +55,7 @@ function Allteachers() {
                 padding: "5px",
                 borderRadius: "5px",
                 border: "1px solid #000",
+                background: "transparent"
               }}
             />
           </Stack>
@@ -110,7 +111,7 @@ function Allteachers() {
             <TeacherCard
               key={teacher.id}
               name={teacher.name}
-              year={teacher.year}
+              pos={teacher.pos}
               img={teacher.img}
               id={teacher.id}
               dob={teacher.dob}

@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 
 function CardField({ name, value }) {
   return (
-    <Stack direction="row" flexWrap="wrap">
+    <Stack direction="row" flexWrap="wrap" overflow="hidden">
       <Typography fontSize="12px" fontWeight={700}>
         {name}&nbsp;
       </Typography>
@@ -29,12 +29,13 @@ function StudentCard({ name, year, img, id, dob, mobileNum, email }) {
         <img
           src={img}
           alt="Student Image"
-          height="100px"
-          width="100px"
+          
           style={{
             borderRadius: "50%",
             objectFit: "cover",
             marginLeft: "5px",
+            height:"100px",
+            width:"100px"
           }}
         />
       </Box>

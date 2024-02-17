@@ -9,25 +9,34 @@ import AllStudents from "./components/students/AllStudents";
 import AllTeachers from "./components/teachers/AllTeachers";
 import StudentProfile from "./components/students/StudentProfile";
 import AllDepartments from "./components/departments/AllDepartments";
+import Login from "./components/login/LoginPage";
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="app">
-        <Sidebar />
-        <Stack flex={1}>
-          <Header />
+      <Routes>
+        <Route path="/" element={<Login />} />
 
-          <Routes>
-              <Route index element={<Dashboard />} />
-              <Route path="students" element={<AllStudents />} />
-              <Route path="teachers" element={<AllTeachers />} />
-              <Route path="profile" element={<StudentProfile />} />
-              <Route path="departments" element={<AllDepartments />} />
-              <Route path="*" element={<Dashboard />} />
-          </Routes>
-        </Stack>
-      </div>
+        <Route
+          path="/*"
+          element={
+            <div className="app">
+              <Sidebar />
+              <Stack flex={1}>
+                <Header />
+                <Routes>
+                  <Route index element={<Dashboard />} />
+                  <Route path="students" element={<AllStudents />} />
+                  <Route path="teachers" element={<AllTeachers />} />
+                  <Route path="profile" element={<StudentProfile />} />
+                  <Route path="departments" element={<AllDepartments />} />
+                  <Route path="*" element={<Dashboard />} />
+                </Routes>
+              </Stack>
+            </div>
+          }
+        />
+      </Routes>
     </BrowserRouter>
   );
 }
