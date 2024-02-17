@@ -13,22 +13,21 @@ function CardField({ name, value }) {
   );
 }
 
-function StudentCard({ name, year, img, id, dob, mobileNum, email }) {
-  const navigate = useNavigate();
+function TeacherCard({ name, year, img }) {
+  // const navigate = useNavigate();
   return (
     <Stack
       borderRadius="15px"
-      p="20px"
+      p="30px 20px"
       gap={2}
       overflow="hidden"
       bgcolor="#fcfcfc"
-      width="250px"
-      onClick={() => navigate("/profile")}
+      // onClick={() => navigate("/profile")}
     >
       <Box display="flex" justifyContent="center" alignItems="center">
         <img
           src={img}
-          alt="Student Image"
+          alt="Teacher Image"
           height="100px"
           width="100px"
           style={{
@@ -48,13 +47,13 @@ function StudentCard({ name, year, img, id, dob, mobileNum, email }) {
       </Stack>
 
       <Stack gap={0.5}>
-        <CardField name="Student ID:" value={id} />
-        <CardField name="DOB:" value={dob} />
-        <CardField name="Mobile No.:" value={mobileNum} />
-        <CardField name="Email ID:" value={email} />
+        <CardField name="Teacher ID:" value="2116350069" />
+        <CardField name="DOB:" value="01/01/2000" />
+        <CardField name="Mobile No.:" value="98765 43210" />
+        <CardField name="Email ID:" value="chingchonglee@gmail.com" />
       </Stack>
     </Stack>
   );
 }
 
-export default StudentCard;
+export default TeacherCard;

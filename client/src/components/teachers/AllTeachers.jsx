@@ -1,34 +1,34 @@
 import React, { useState } from "react";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { Add } from "@mui/icons-material";
-import StudentCard from "./StudentCard";
+import TeacherCard from "./TeacherCard";
 import CustomButton from "../../CustomButton";
 import ListView from "./ListView";
-import { studentsList } from "./students.config";
+import { teachersList } from "./teachers.config";
 
-function AllStudents() {
-  const [students, setStudents] = useState([...studentsList]);
+function Allteachers() {
+  const [teachers, setteachers] = useState([...teachersList]);
   const [filterName, setFilterName] = useState("");
   const [filterID, setFilterID] = useState("");
-  const [filterClass, setFilterClass] = useState("");
+  const [filterPos, setFilterPos] = useState("");
   const [viewType, setViewType] = useState("Card");
 
-  const filteredStudents = students.filter(
-    (student) =>
-      student.name.toLowerCase().includes(filterName.toLowerCase()) &&
-      student.id.toString().includes(filterID) &&
-      student.year.toLowerCase().includes(filterClass.toLowerCase())
+  const filteredteachers = teachers.filter(
+    (teacher) =>
+      teacher.name.toLowerCase().includes(filterName.toLowerCase()) &&
+      teacher.id.toString().includes(filterID) &&
+      teacher.position.toLowerCase().includes(filterPos.toLowerCase())
   );
 
   return (
     <Box padding="20px" sx={{ overflow: "auto" }}>
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <Typography fontSize={25} fontWeight={700} colors="#11142d">
-          All Students
+          All teachers
         </Typography>
 
         <CustomButton
-          title="Add Student"
+          title="Add teacher"
           handleClick={() => {}}
           backgroundColor="#475be8"
           color="#fcfcfc"
@@ -78,9 +78,9 @@ function AllStudents() {
             <Typography>Class</Typography>
             <input
               type="text"
-              placeholder="Filter by Class"
-              value={filterClass}
-              onChange={(e) => setFilterClass(e.target.value)}
+              placeholder="Filter by Position"
+              value={filterPos}
+              onChange={(e) => setFilterPos(e.target.value)}
               style={{
                 padding: "5px",
                 borderRadius: "5px",
@@ -106,24 +106,24 @@ function AllStudents() {
 
       <Box width="100%" p="20px" display="flex" gap={4} flexWrap="wrap">
         {viewType === "Card" ? (
-          filteredStudents.map((student) => (
-            <StudentCard
-              key={student.id}
-              name={student.name}
-              year={student.year}
-              img={student.img}
-              id={student.id}
-              dob={student.dob}
-              mobileNum={student.mobileNum}
-              email={student.email}
+          filteredteachers.map((teacher) => (
+            <TeacherCard
+              key={teacher.id}
+              name={teacher.name}
+              year={teacher.year}
+              img={teacher.img}
+              id={teacher.id}
+              dob={teacher.dob}
+              mobileNum={teacher.mobileNum}
+              email={teacher.email}
             />
           ))
         ) : (
-          <ListView students={filteredStudents} />
+          <ListView teachers={filteredteachers} />
         )}
       </Box>
     </Box>
   );
 }
 
-export default AllStudents;
+export default Allteachers;

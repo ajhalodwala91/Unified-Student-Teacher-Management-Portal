@@ -59,7 +59,7 @@ function Sidebar() {
         </Typography>
       </Stack>
 
-      <Stack gap={2}>
+      <Stack gap={1.5}>
         <Link
           to="/"
           style={{
