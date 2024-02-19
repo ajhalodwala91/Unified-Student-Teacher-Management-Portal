@@ -1,0 +1,9 @@
+.profile {
+  height: calc(100vh - 70px);
+  padding: 60px;
+  padding-right: 30px;
+  grid-area: main;
+
+  display: flex;
+  gap: 60px;
+}

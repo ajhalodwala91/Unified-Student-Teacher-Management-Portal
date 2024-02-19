@@ -50,17 +50,17 @@ function StudentDetails() {
           color="#107d31"
           lineHeight={1.3}
         >
-          {studentData ? studentData.name : "Unavailable"}
+          {studentData ? "Caroline Stokes" : "Unavailable"}
         </Typography>
         <Typography fontSize="24px" color="#262626">
           {studentData
-            ? studentData.academics.class + " - " + studentData.studID
+            ? "TY Comp Diploma" + " - " + "2116350088"
             : "Unavailable"}
         </Typography>
       </Stack>
 
       <Box display="flex" flexDirection="column" gap="25px">
-        <Stack direction="row" gap="25px">
+        <Stack direction={{ xs: "column", lg: "row" }} gap="25px">
           <TestMarksChart />
           <Overview />
         </Stack>

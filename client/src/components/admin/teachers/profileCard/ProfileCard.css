@@ -1,0 +1,40 @@
+.profileStyle {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  color: #262626;
+  padding: 10px 30px;
+  font-size: clamp(12px, 14px, 16px);
+  word-break: break-word;
+}
+
+.profileCard {
+  height: 75vh;
+  width: 650px;
+
+  border-radius: 30px;
+  overflow: hidden;
+  align-self: center;
+}
+
+.userImg {
+  height: 55%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.userMail {
+  height: 15%;
+  background-color: #98f5b4;
+}
+
+.userMobileNum {
+  height: 15%;
+  background-color: #7cf09f;
+}
+
+.userAddress {
+  height: 15%;
+  background-color: #63ed8b;
+}

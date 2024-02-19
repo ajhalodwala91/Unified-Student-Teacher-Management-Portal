@@ -3,13 +3,12 @@ const mongoose = require("mongoose");
 
 const cors = require("cors");
 const User = require("./Models/User");
-const Notices = require("./Models/Notices");
+const Notice = require("./Models/Notice");
 const Student = require("./Models/Student");
-const Note = require("./Models/Notes");
+const Teacher = require("./Models/Teacher");
 var Binary = require("mongodb").Binary;
 
 const app = express();
-const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 app.use(express.json());
 app.use(cors());
@@ -18,15 +17,6 @@ const PORT = process.env.PORT || 5000;
 
 // Connect to MongoDB
 mongoose.connect("mongodb://127.0.0.1:27017/management-app");
-
-let user = new User({
-  Email: "example@email.com",
-  Password: "$2b$10$/210H14qZKNJvzOs0qemHe2Sa5.V9.mX8QolWPsnvRvgKgcjUHwTK",
-  Role: "Admin",
-  Name: "Example",
-});
-
-// user.save();
 
 let userHash;
 
@@ -99,6 +89,117 @@ app.get("/api/student/:id", async (req, res) => {
     res
       .status(500)
       .json({ error: "Internal Server Error", details: error.message });
+  }
+});
+
+// Route to get all teachers
+app.get("/api/teachers", async (req, res) => {
+  try {
+    const teachers = await Teacher.find();
+    res.json(teachers);
+  } catch (error) {
+    console.error("Error fetching teachers:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// Route to get a specific teacher by ID
+app.get("/api/teacher/:id", async (req, res) => {
+  try {
+    const teacher = await Teacher.findById(req.params.id);
+    if (!teacher) {
+      return res.status(404).json({ error: "Teacher not found" });
+    }
+    res.json(teacher);
+  } catch (error) {
+    console.error("Error finding teacher:", error);
+    res
+      .status(500)
+      .json({ error: "Internal Server Error", details: error.message });
+  }
+});
+
+// Route to get all notes
+app.get("/api/notices", async (req, res) => {
+  try {
+    const notices = await Notice.find();
+    console.log(notices.date);
+    res.json(notices);
+  } catch (error) {
+    console.error("Error fetching notices:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// Route to create a new note
+app.post("/api/addNotice", async (req, res) => {
+  try {
+    const { title, description } = req.body;
+
+    const newNotice = new Notice({
+      title,
+      description,
+    });
+
+    await newNotice.save();
+    res
+      .status(201)
+      .json({ message: "Notice added successfully", notice: newNotice });
+  } catch (error) {
+    console.error("Error adding notice:", error);
+    res
+      .status(500)
+      .json({ error: "Internal Server Error", details: error.message });
+  }
+});
+
+// Route to update a note by ID
+app.put("/api/notice/:id", async (req, res) => {
+  try {
+    const { title, content } = req.body;
+
+    const updatedNotice = await Note.findByIdAndUpdate(
+      req.params.id,
+      {
+        title,
+        content,
+      },
+      { new: true }
+    );
+
+    if (!updatedNotice) {
+      return res.status(404).json({ error: "Note not found" });
+    }
+
+    res.json({ message: "Note updated successfully", notice: updatedNotice });
+  } catch (error) {
+    console.error("Error updating note:", error);
+    res
+      .status(500)
+      .json({ error: "Internal Server Error", details: error.message });
+  }
+});
+
+// Adding a student
+app.post('/api/addStudent', async (req, res) => {
+  try {
+    const { name, course, year, email, mobileNum, address } = req.body;
+
+    const newStudent = new Student({
+      name,
+      course,
+      year,
+      email,
+      mobileNum,
+      address,
+    });
+
+    await newStudent.save();
+
+    res.status(201).json({ message: 'Student added successfully', student: newStudent });
+  } catch (error) {
+    console.error('Error adding student:', error);
+    res.status(500).json({ error: 'Internal Server Error', details: error.message });
   }
 });
 

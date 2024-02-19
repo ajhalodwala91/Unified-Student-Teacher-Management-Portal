@@ -59,14 +59,14 @@ function Sidebar() {
         </Typography>
       </Stack>
 
-      <Stack gap={1.5}>
+      <Stack gap={2.5}>
         <Link
-          to="/"
+          to="/home"
           style={{
             textDecoration: "none",
             color: "black",
           }}
-          className={splitLocation[1] === "" ? "active" : ""}
+          className={splitLocation[1] === "home" ? "active" : ""}
         >
           <SidebarLink icon={icons.homeIcon} name="Home" />
         </Link>
@@ -79,7 +79,6 @@ function Sidebar() {
           <SidebarLink icon={<PiStudent fontSize={30} />} name="Students" />
         </Link>
 
-        {/* Adjust the paths for the following links based on your route structure */}
         <Link
           to="/teachers"
           style={{ textDecoration: "none", color: "black" }}
@@ -103,30 +102,11 @@ function Sidebar() {
         </Link>
 
         <Link
-          to="/timetable"
+          to="/notices"
           style={{ textDecoration: "none", color: "black" }}
-          className={splitLocation[1] === "timetable" ? "active" : ""}
-        >
-          <SidebarLink icon={<PiTable fontSize={30} />} name="Time Table" />
-        </Link>
-
-        <Link
-          to="/announcements"
-          style={{ textDecoration: "none", color: "black" }}
-          className={splitLocation[1] === "announcemments" ? "active" : ""}
+          className={splitLocation[1] === "notices" ? "active" : ""}
         >
           <SidebarLink icon={icons.announcementIcon} name="Announcements" />
-        </Link>
-
-        <Link
-          to="/settings"
-          style={{ textDecoration: "none", color: "black" }}
-          className={splitLocation[1] === "settings" ? "active" : ""}
-        >
-          <SidebarLink
-            icon={<IoSettingsOutline fontSize={28} />}
-            name="Settings"
-          />
         </Link>
       </Stack>
     </Box>

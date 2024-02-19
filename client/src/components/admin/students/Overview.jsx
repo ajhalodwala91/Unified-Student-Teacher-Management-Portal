@@ -34,16 +34,16 @@ function ProgressBar({ title, percentage, color }) {
   );
 }
 
-function PropertyReferrals() {
+function Overview() {
   return (
     <Box
       id="chart"
       p={4}
-      width="40%"
       bgcolor="#fcfcfc"
       display="flex"
       flexDirection="column"
       borderRadius="15px"
+      flex={{lg: 1}}
     >
       <Typography fontSize="18px" fontWeight={600} color="#11142d">
         Overview
@@ -58,4 +58,4 @@ function PropertyReferrals() {
   );
 }
 
-export default PropertyReferrals;
+export default Overview;

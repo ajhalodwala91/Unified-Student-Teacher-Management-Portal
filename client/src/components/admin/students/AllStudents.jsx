@@ -1,24 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { Add } from "@mui/icons-material";
 import StudentCard from "./StudentCard";
-import CustomButton from "../../CustomButton";
+import CustomButton from "../../../CustomButton";
 import ListView from "./ListView";
 import { studentsList } from "./students.config";
+import { useNavigate } from "react-router-dom";
 
 function AllStudents() {
-  const [students, setStudents] = useState([...studentsList]);
+  const navigate = useNavigate();
+  const [students, setStudents] = useState([]);
   const [filterName, setFilterName] = useState("");
   const [filterID, setFilterID] = useState("");
   const [filterClass, setFilterClass] = useState("");
   const [viewType, setViewType] = useState("Card");
 
-  const filteredStudents = students.filter(
-    (student) =>
-      student.name.toLowerCase().includes(filterName.toLowerCase()) &&
-      student.id.toString().includes(filterID) &&
-      student.year.toLowerCase().includes(filterClass.toLowerCase())
-  );
+  useEffect(() => {
+    const fetchStudents = async () => {
+      try {
+        const response = await fetch("http://localhost:8080/api/students");
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        setStudents(data);
+      } catch (error) {
+        console.error("Error fetching students:", error.message);
+      }
+    };
+
+    fetchStudents();
+  }, []);
+  
+  // const filteredStudents = students.filter(
+  //   (student) =>
+  //     student.name.toLowerCase().includes(filterName.toLowerCase()) &&
+  //     student.studID.toString().includes(filterID) &&
+  //     student.year.toLowerCase().includes(filterClass.toLowerCase())
+  // );
 
   return (
     <Box padding="20px" sx={{ overflow: "auto" }}>
@@ -29,7 +48,7 @@ function AllStudents() {
 
         <CustomButton
           title="Add Student"
-          handleClick={() => {}}
+          handleClick={() => {navigate("/addStudent")}}
           backgroundColor="#475be8"
           color="#fcfcfc"
           icon={<Add />}
@@ -106,7 +125,7 @@ function AllStudents() {
 
       <Box width="100%" p="20px" display="flex" gap={4} flexWrap="wrap">
         {viewType === "Card" ? (
-          filteredStudents.map((student) => (
+          students.map((student) => (
             <StudentCard
               key={student.id}
               name={student.name}
@@ -119,7 +138,7 @@ function AllStudents() {
             />
           ))
         ) : (
-          <ListView students={filteredStudents} />
+          <ListView students={students} />
         )}
       </Box>
     </Box>

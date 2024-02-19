@@ -1,17 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { Add } from "@mui/icons-material";
 import TeacherCard from "./TeacherCard";
-import CustomButton from "../../CustomButton";
+import CustomButton from "../../../CustomButton";
 import ListView from "./ListView";
 import { teachersList } from "./teachers.config";
 
 function Allteachers() {
-  const [teachers, setteachers] = useState([...teachersList]);
+  const [teachers, setTeachers] = useState([]);
   const [filterName, setFilterName] = useState("");
   const [filterID, setFilterID] = useState("");
   const [filterPos, setFilterPos] = useState("");
   const [viewType, setViewType] = useState("Card");
+
+  useEffect(() => {
+    const fetchTeachers = async () => {
+      try {
+        const response = await fetch("http://localhost:8080/api/teachers");
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        setTeachers(data);
+      } catch (error) {
+        console.error("Error fetching teachers:", error.message);
+      }
+    };
+
+    fetchTeachers();
+  }, []);
 
   const filteredteachers = teachers.filter(
     (teacher) =>
@@ -55,7 +72,7 @@ function Allteachers() {
                 padding: "5px",
                 borderRadius: "5px",
                 border: "1px solid #000",
-                background: "transparent"
+                background: "transparent",
               }}
             />
           </Stack>

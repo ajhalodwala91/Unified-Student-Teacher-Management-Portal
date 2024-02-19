@@ -48,7 +48,6 @@ function Header() {
             Administrator
           </Typography>
         </Stack>
-        {icons.downArrowIcon}
       </Stack>
     </Box>
   );

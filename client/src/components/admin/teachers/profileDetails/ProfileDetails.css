@@ -1,0 +1,147 @@
+/* --------------- Profile Details  --------------- */
+.profileDetails {
+  padding-right: 30px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.profileDetails::-webkit-scrollbar {
+  width: 8px;
+}
+
+.profileDetails::-webkit-scrollbar-track {
+  background-color: rgba(204, 204, 204, 0.25);
+  border-radius: 20px;
+}
+
+.profileDetails::-webkit-scrollbar-thumb {
+  background-color: #cccccc;
+  border-radius: 20px;
+}
+
+/* --------------- User Title  --------------- */
+.userName {
+  font-size: 48px;
+  font-weight: 600;
+  color: #107d31;
+}
+
+.userDesignation {
+  font-size: 24px;
+  color: #262626;
+}
+
+/* --------------- Profile Section  --------------- */
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  margin-top: 30px;
+  padding-block: 20px;
+  border-top: 2px solid #a5a5a5;
+}
+
+.sectionName {
+  color: #107d31;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* --------------- Experience Section  --------------- */
+.expSection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.expCard {
+  width: 200px;
+  line-height: 28px;
+  flex: 1 160px;
+}
+
+.expTime {
+  background-color: #cccccc;
+  border-radius: 10px;
+  width: fit-content;
+  padding-inline: 10px;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.expInstPost {
+  color: #107d31;
+  font-weight: 700;
+}
+
+.expInstName {
+  font-weight: 700;
+}
+
+/* --------------- User Skills  --------------- */
+.skillsSection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px 50px;
+}
+
+.skillCard {
+  width: 225px;
+}
+
+.skillBar {
+  height: 5px;
+  width: 100%;
+  background-color: #cccccc;
+  border-radius: 5px;
+  margin-top: 5px;
+  overflow: hidden;
+}
+
+.skillPercent {
+  background-color: #107d31;
+  width: 68%;
+  height: 100%;
+}
+
+/* --------------- User Reviews  --------------- */
+.reviewsSection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.reviewCard {
+  border-radius: 20px;
+  padding: 24px;
+  width: 240px;
+  background-color: #bdedc8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reviewImg {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.reviewBy {
+  color: #107d31;
+  font-weight: 800;
+}
+
+.parentOf {
+  color: #262626;
+  font-weight: 700;
+}
+
+.review {
+  color: #262626;
+  font-size: 14px;
+  margin-top: 10px;
+}

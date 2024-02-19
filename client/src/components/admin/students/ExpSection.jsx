@@ -1,6 +1,6 @@
 import { Box, Stack, Typography } from "@mui/material";
 import React from "react";
-import { Icons } from "../../assets/Icons";
+import { Icons } from "../../../assets/Icons";
 
 function ExpCard({ key, years, position, name, address }) {
   return (

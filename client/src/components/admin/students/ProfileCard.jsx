@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Box, Stack, Typography } from "@mui/material";
-import { Icons } from "../../assets/Icons";
+import { Icons } from "../../../assets/Icons";
 
 function CardField({ icon, value, color }) {
   const [fontSize, setFontSize] = useState(16);
@@ -38,16 +38,13 @@ function ProfileCard() {
     <Stack
       alignItems="center"
       borderRadius="30px"
-      height="100%"
       width={350}
-      sx={{ overflow: "hidden" }}
+      sx={{ overflow: "hidden", height: "100%" }}
     >
       <img
         src="https://theherdkhs.net/wp-content/uploads/2016/11/image1-900x675.jpeg"
         className="userImg"
-        height="55%"
-        width="100%"
-        style={{ objectFit: "cover" }}
+        style={{ objectFit: "cover", height: "55%", width: "100%" }}
       />
 
       <CardField
